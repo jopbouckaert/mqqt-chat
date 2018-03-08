@@ -73,6 +73,7 @@ public class MqttChatService implements MqttCallback {
     public void disconnect() {
         try {
             client.disconnect();
+            client.close();
         } catch (MqttException ex) {
             Logger.getLogger(MqttChatService.class.getName()).log(Level.SEVERE, null, ex);
         }

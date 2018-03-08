@@ -22,7 +22,7 @@ public class FxmlMqttChatClient extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("ChatClient.fxml"));
         
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }

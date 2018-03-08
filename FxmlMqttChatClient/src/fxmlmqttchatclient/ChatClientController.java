@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 public class ChatClientController implements Initializable, IMqttMessageHandler {
     
@@ -35,6 +36,9 @@ public class ChatClientController implements Initializable, IMqttMessageHandler 
         // Create a chat service and allow this class to receive messages
         chatService = new MqttChatService();
         chatService.setMessageHandler(this);
+        
+        // When the user closes the window we need to disconnect the client
+        disconnectClientOnClose();
     }    
 
     // This method is called if a chat message is received from mqtt
@@ -42,5 +46,22 @@ public class ChatClientController implements Initializable, IMqttMessageHandler 
     public void messageArrived(String channel, String message) {
         System.out.println("Received chat message (on channel = " + channel
                 + "): " + message);
+    }
+    
+    private void disconnectClientOnClose() {
+        // Source: https://stackoverflow.com/a/30910015
+        send.sceneProperty().addListener((observableScene, oldScene, newScene) -> {
+            if (oldScene == null && newScene != null) {
+                // scene is set for the first time. Now its the time to listen stage changes.
+                newScene.windowProperty().addListener((observableWindow, oldWindow, newWindow) -> {
+                    if (oldWindow == null && newWindow != null) {
+                        // stage is set. now is the right time to do whatever we need to the stage in the controller.
+                        ((Stage) newWindow).setOnCloseRequest((event) -> {
+                            chatService.disconnect();
+                        });
+                    }
+                });
+            }
+        });
     }
 }
