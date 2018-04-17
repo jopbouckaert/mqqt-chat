@@ -1,0 +1,84 @@
+/* 
+    Created on : 23-mrt-2018, 13:22:02
+    Author     : jopbo_000
+*/
+
+
+
+.background {
+    -fx-background-color: #333333;
+}
+
+Label {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+    
+}
+
+Button {
+    
+    -fx-background-color: #4286f4; 
+    -fx-cursor: hand;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 16pt;
+    
+}
+
+RadioButton {
+    -fx-text-fill: white;
+    -fx-color: #4286f4;
+    -fx-font-family: "Century Gothic";
+}
+
+TextArea {
+    -fx-control-inner-background:#333333;
+    -fx-focus-color: #4286f4;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: "Century Gothic";
+    -fx-prompt-text-fill: lightgray;
+}
+
+TextField {
+    -fx-background-color: #333333;
+    -fx-control-inner-background: #333333;
+    -fx-highlight-fill: #4286f4;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: lightgray;
+    -fx-border-style: solid;
+    -fx-border-color: #333333 #333333 #4286f4 #333333;
+    -fx-border-width: 2;
+    -fx-font-family: "Century Gothic";
+}
+
+.sendButton{
+    
+    -fx-background-image: url('img/sendButton.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+  
+}
+
+ListView{
+        -fx-control-inner-background:#333333;
+        -fx-focus-color: #4286f4;
+        -fx-faint-focus-color: transparent;
+        -fx-font-family: "Century Gothic";
+    
+}
+
+MenuBar {
+    -fx-background-color: derive(#1d1d1d,20%);
+}
+
+MenuBar .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50%);
+}

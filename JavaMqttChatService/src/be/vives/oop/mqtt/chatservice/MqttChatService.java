@@ -56,6 +56,21 @@ public class MqttChatService implements MqttCallback {
         }
     }
     
+    
+    public void switchChannel(String channel) {
+        try {
+            client.unsubscribe(channelTopic);
+            this.channelName = channel;
+            this.channelTopic = BASE_TOPIC + "/" + this.channelName;
+            client.subscribe(channelTopic);
+        } catch (MqttException ex) {
+            Logger.getLogger(MqttChatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+    }
+    
+    
     public void sendMessage(String message) {
         try {
             MqttMessage mqttMessage = new MqttMessage(message.getBytes());
