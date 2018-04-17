@@ -38,4 +38,5 @@ I think the code is fine.
 ## Need to knows and remarks
 
 I tried to make an login screen. I was able to switch te screens but I could not get data form the login screen to the chatclientcontroller. So I left this part out.
-![Log in screen](img/login.jpg)
+
+![Log in screen](img/login.JPG)
